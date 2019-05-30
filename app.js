@@ -1,4 +1,4 @@
-document.getElementById('grist-form').addEventListener('submit', function(e){
+document.getElementById('grist-form').addEventListener('submit', function (e) {
     document.getElementById('results').style.display = 'none'
     document.getElementById('loading').style.display = 'block'
     setTimeout(calculateResults, 1000)
@@ -21,9 +21,9 @@ function calculateResults() {
     const gristImperial = totalLengthInYards / weightInPounds
 
     if (isFinite(gristImperial)) {
-        totalLength.value = totalLengthInMeters
-        gristMetricField.value = gristMetric
-        gristImperialField.value = gristImperial
+        totalLength.value = totalLengthInMeters.toFixed(2)
+        gristMetricField.value = gristMetric.toFixed(2)
+        gristImperialField.value = gristImperial.toFixed(2)
         yarnClass.value = getYarnClass(gristImperial)
         document.getElementById('loading').style.display = 'none'
         document.getElementById('results').style.display = 'block'
