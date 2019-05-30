@@ -5,6 +5,13 @@ document.getElementById('grist-form').addEventListener('submit', function (e) {
     e.preventDefault()
 })
 
+document.getElementById('reset-button').addEventListener('click', reset) 
+
+function reset() {
+        document.getElementById('grist-form').reset()
+        document.getElementById('results').style.display = 'none'
+}
+
 function calculateResults() {
     const weightInGrams = parseFloat(document.getElementById('weight').value)
     const length = parseFloat(document.getElementById('length').value)
