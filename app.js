@@ -19,16 +19,16 @@ function calculateResults() {
     const gristMetricField = document.getElementById('gristMetric')
     const gristImperialField = document.getElementById('gristImperial')
     const yarnClass = document.getElementById('class')
-    const totalLength = document.getElementById('totalLength')
+    const totalLength = document.getElementById('totalLengthYards')
 
-    const totalLengthInMeters = wraps * 2 * length / 100
-    const totalLengthInYards = totalLengthInMeters * 1.094
+    const totalLengthInYards = (wraps * 2 * length) / 36
+    const totalLengthInMeters = totalLengthInYards / 1.094
     const weightInPounds = weightInGrams / 453.592
     const gristMetric = totalLengthInMeters / (weightInGrams / 1000)
     const gristImperial = totalLengthInYards / weightInPounds
 
     if (isFinite(gristImperial)) {
-        totalLength.value = totalLengthInMeters.toFixed(2)
+        totalLengthYards.value = totalLengthInYards.toFixed(2)
         gristMetricField.value = gristMetric.toFixed(2)
         gristImperialField.value = gristImperial.toFixed(2)
         yarnClass.value = getYarnClass(gristImperial)
