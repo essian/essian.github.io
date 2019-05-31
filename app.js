@@ -3,14 +3,34 @@ document.getElementById('grist-form-metric').style.display = 'none'
 // Toggle mixed and metric
 
 document.getElementById('metric-button').addEventListener('click', function(e){
+    const mixedWeight = document.getElementById('mixed-weight-g').value
+    const mixedWraps = document.getElementById('mixed-wraps').value
+    const metricWeight = document.getElementById('metric-weight-g')
+    const metricWraps = document.getElementById('metric-wraps')
     reset()
+    if (mixedWeight !== null) {
+        metricWeight.value = mixedWeight
+    }
+    if (mixedWraps !== null) {
+        metricWraps.value = mixedWraps
+    }
     document.getElementById('grist-form-mixed').style.display = "none"
     document.getElementById('grist-form-metric').style.display = 'block'
 
 })
 
 document.getElementById('mixed-button').addEventListener('click', function(e){
+    const metricWeight = document.getElementById('metric-weight-g').value
+    const metricWraps = document.getElementById('metric-wraps').value
+    const mixedWeight = document.getElementById('mixed-weight-g')
+    const mixedWraps = document.getElementById('mixed-wraps')
     reset()
+    if (metricWeight !== null) {
+        mixedWeight.value = metricWeight
+    }
+    if (metricWraps !== null) {
+        mixedWraps.value = metricWraps
+    }
     document.getElementById('grist-form-mixed').style.display = "block"
     document.getElementById('grist-form-metric').style.display = 'none'
 
@@ -62,9 +82,6 @@ function calculateResultsMixed() {
     const weightInPounds = weightInGrams / 453.592
     const gristMetric = totalLengthInMeters / (weightInGrams / 1000)
     const gristImperial = totalLengthInYards / weightInPounds
-    console.log(wraps)
-    console.log(totalLengthInMeters)
-    console.log(gristImperial)
 
     if (isFinite(gristImperial)) {
         totalLengthYards.value = totalLengthInYards.toFixed(2)
@@ -118,7 +135,6 @@ function calculateResultsMetric() {
 }
 
 function getYarnClass(grist) {
-    console.log(grist)
     let yarnClass = ""
     if (grist > 2400)
         return yarnClass = "Lace"
