@@ -1,5 +1,6 @@
 {
   "devDependencies": {
     "testcafe": "*"
+    "lodash": ">=4.17.12"
   }
 }
