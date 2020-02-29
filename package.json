@@ -3,7 +3,7 @@
     "testcafe": "*"
   },
   "repository": {
-  "type": "git",
-  "url": "https://github.com/essian/essian.github.io"
-}
+    "type": "git",
+    "url": "https://github.com/essian/essian.github.io"
+  }
 }
